@@ -1,0 +1,53 @@
+.thermal-scroll-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    /* Blend mode to make it look like heat */
+    mix-blend-mode: multiply;
+    opacity: 0.6;
+}
+
+/* Dark mode needs an additive blend mode to create a luminous heat glow */
+[data-theme="dark"] .thermal-scroll-container {
+    mix-blend-mode: color-dodge;
+    opacity: 0.35;
+}
+
+.thermal-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    will-change: transform;
+}
+
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(251, 146, 60, 0.45) 0%, transparent 70%);
+    /* Warm orange */
+}
+
+.blob-2 {
+    width: 800px;
+    height: 800px;
+    bottom: -200px;
+    right: -200px;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.35) 0%, transparent 70%);
+    /* Red heat */
+}
+
+.blob-3 {
+    width: 500px;
+    height: 500px;
+    top: 40%;
+    left: 30%;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, transparent 70%);
+    /* Amber */
+}
