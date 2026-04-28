@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bharath Kumar Rajesh - Software Engineer, Published Researcher, AWS Certified">
+    <title>Bharath Kumar Rajesh | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">BK</div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Bharath Kumar Rajesh</h1>
+                <div class="hero-highlight">
+                    <h2 class="hero-tagline">Software Engineer. Published Researcher. AWS Certified.</h2>
+                    <p class="hero-subtitle">MS Computer Science @ Pace University | Graduating May 2026 | Based in New York City</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <button class="btn btn-outline" id="resumeBtn">Download Resume</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Options Modal -->
+    <div class="modal" id="resumeModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Choose Resume Type</h3>
+            <div class="resume-options">
+                <a href="resumes/software-engineer-resume.pdf" class="resume-option" download>
+                    <div class="resume-icon">💻</div>
+                    <h4>Software Engineer</h4>
+                    <p>General SWE positions</p>
+                </a>
+                <a href="resumes/data-engineer-resume.pdf" class="resume-option" download>
+                    <div class="resume-icon">📊</div>
+                    <h4>Data Engineer</h4>
+                    <p>Data & analytics roles</p>
+                </a>
+                <a href="resumes/ml-engineer-resume.pdf" class="resume-option" download>
+                    <div class="resume-icon">🤖</div>
+                    <h4>ML/AI Engineer</h4>
+                    <p>Machine learning positions</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">Hi, I'm Bharath.</p>
+                    <p>I'm a software engineer and published researcher based in New York City, currently completing my Master's in Computer Science at Pace University (3.86 GPA). I care about building things that work well and solve real problems.</p>
+                    <p>Right now, I work as a Graduate Assistant at Pace, where I build AI automation tools and data engineering pipelines that help the university run more efficiently. Before that, I built a community app serving 1,000 users, developed a sentiment analysis system with 90% accuracy, and contributed to open-source cloud-native projects.</p>
+                    <p>I'm strongest in Python, SQL, and cloud infrastructure (I hold an AWS Solutions Architect certification and a Red Hat System Administrator certification). My published research applies deep learning to plant disease classification, and I genuinely enjoy the intersection of software engineering, data, and machine learning.</p>
+                    <div class="about-highlight">
+                        <p><strong>I'm looking for Software Engineer, Data Engineer, or ML Engineer roles starting Summer 2026.</strong> I thrive in collaborative environments where I can learn fast and build things that matter.</p>
+                    </div>
+                    <p>When I'm not coding, I'm probably exploring something new in NYC or diving into a technical rabbit hole that seemed like it would take 10 minutes but turned into 3 hours.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">3.86</div>
+                        <div class="stat-label">GPA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Users Served</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-label">ML Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <!-- Experience Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Graduate Assistant - AI Automation & Data Engineering</h3>
+                            <span class="timeline-badge current">Current</span>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Pace University</span>
+                            <span class="location">New York, NY</span>
+                            <span class="date">Mar 2025 - Present</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Built AI-powered automation tools using Python to streamline university administrative operations</li>
+                            <li>Developed data analysis pipelines and SQL queries against PostgreSQL for department reporting</li>
+                            <li>Integrated AI agents (LLMs) into existing workflows, reducing manual data processing for staff</li>
+                            <li>Created internal web applications and dashboards for data visualization and monitoring</li>
+                            <li>Collaborated across departments to identify automation opportunities and deliver solutions</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Apache Spark</span>
+                            <span class="tech-tag">Apache Airflow</span>
+                            <span class="tech-tag">AI/LLM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Campus Ambassador</h3>
+                            <span class="timeline-badge current">Current</span>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Perplexity</span>
+                            <span class="location">New York, NY</span>
+                            <span class="date">Sep 2025 - Present</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Promote Perplexity's AI-powered Comet browser within the Pace University community</li>
+                            <li>Organize events and demonstrations to engage students and faculty with AI tools</li>
+                            <li>Collaborate with fellow ambassadors to maximize outreach and awareness</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Development Intern</h3>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Let's Be The Change (#TeamLBTC)</span>
+                            <span class="location">Bangalore, India</span>
+                            <span class="date">Sep 2023 - May 2024</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Developed a Flutter-based community engagement app serving 1,000 users on both iOS and Android</li>
+                            <li>Built a web administration portal for managing app features and monitoring user activity</li>
+                            <li>Collaborated with cross-functional teams to implement community forums, event calendars, and user profiles</li>
+                            <li>Conducted user research to refine app functionality and improve the overall user experience</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Machine Learning Research Intern</h3>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Compsoft Technologies</span>
+                            <span class="location">Bangalore, India</span>
+                            <span class="date">Aug 2023 - Sep 2023</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Developed a machine learning model for sentiment analysis of COVID-19 lockdown in India, achieving 90% accuracy</li>
+                            <li>Built end-to-end pipeline: data collection, preprocessing, feature engineering, model training, and evaluation</li>
+                            <li>Engineered a Flask web application for real-time sentiment prediction and user interaction</li>
+                            <li>Conducted comprehensive model testing and optimization; generated detailed performance reports</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Data Science Intern</h3>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Pantechelearning</span>
+                            <span class="location">India (Remote)</span>
+                            <span class="date">Aug 2023 - Sep 2023</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Conducted exploratory data analysis (EDA) on large datasets to identify trends, patterns, and anomalies</li>
+                            <li>Built data preprocessing pipelines: handling missing values, outliers, and categorical variable encoding</li>
+                            <li>Developed predictive models using regression analysis and decision trees, improving prediction accuracy by 15%</li>
+                            <li>Used Python libraries: Pandas, NumPy, Matplotlib, and Scikit-learn for data visualization and modeling</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Apache Spark</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Engineer Intern</h3>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Alltramatic</span>
+                            <span class="location">New York, NY (Remote)</span>
+                            <span class="date">Mar 2023 - Apr 2023</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Led development of web automation solutions using Selenium, improving testing speed and accuracy by 30%</li>
+                            <li>Implemented SMTP protocols for 500+ users, ensuring reliable email functionalities within applications</li>
+                            <li>Integrated geo-fencing APIs and location-based services for 1,000+ users, improving engagement</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">SMTP</span>
+                            <span class="tech-tag">APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 7 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Core Team Member</h3>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Tech Club of Jyothy IT</span>
+                            <span class="location">Bangalore, India</span>
+                            <span class="date">Jun 2021 - Apr 2024</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Cultivated a thriving research community by organizing workshops and hackathons</li>
+                            <li>Led initiatives to enhance students' proficiency in research paper writing and technical literature</li>
+                            <li>Hosted National Level Hackathons, engaging over 200 participants annually</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 8 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Open Source Contributor</h3>
+                        </div>
+                        <div class="timeline-meta">
+                            <span class="company">Layer5</span>
+                            <span class="location">Remote</span>
+                            <span class="date">Jul 2021 - Sep 2021</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Contributed features and bug fixes to cloud-native open-source projects</li>
+                            <li>Collaborated with global developers on Docker and Kubernetes-based infrastructure tools</li>
+                            <li>Improved application functionality and contributed to project documentation</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Go</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Community Engagement Platform</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">Full-stack mobile application designed to connect and engage a community of 1,000 users across iOS and Android. Includes community forums, event calendars, user profiles, and a web-based admin portal.</p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">👥</span>
+                            <span>1,000 active users</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📱</span>
+                            <span>iOS & Android</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🎯</span>
+                            <span>Admin portal</span>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>COVID-19 Sentiment Analysis System</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">End-to-end machine learning application that analyzes public sentiment about COVID-19 lockdowns in India. Includes a full NLP pipeline with a Flask-based web interface for real-time predictions.</p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🎯</span>
+                            <span>90% accuracy</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">⚡</span>
+                            <span>Real-time predictions</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📊</span>
+                            <span>Full NLP pipeline</span>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Predictive Analytics Pipeline</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">Data science project involving exploratory data analysis on large datasets, data preprocessing, and predictive modeling using regression and decision tree algorithms.</p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📈</span>
+                            <span>15% accuracy improvement</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🔍</span>
+                            <span>Full EDA</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🤖</span>
+                            <span>Multiple ML models</span>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Web Automation Testing Suite</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">Automated web testing framework built with Selenium. Includes SMTP email integration for 500+ users and geo-fencing API integration for location-based services.</p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">⚡</span>
+                            <span>30% speed improvement</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✉️</span>
+                            <span>500+ email users</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📍</span>
+                            <span>Geo-fencing APIs</span>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">SMTP</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card featured">
+                    <div class="featured-badge">Published Research</div>
+                    <div class="project-header">
+                        <h3>Plant Disease Classification</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Paper</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">Designed and trained a Convolutional Neural Network (CNN) for automated plant disease detection using image classification. Published in Atlantis Highlights in Engineering (Springer Nature).</p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📚</span>
+                            <span>Peer-reviewed</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🧠</span>
+                            <span>CNN architecture</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🌱</span>
+                            <span>Agricultural tech</span>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">CNNs</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>AI Automation Tools (Pace University)</h3>
+                        <div class="project-links">
+                            <span class="project-link inactive">Internal/Private</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Suite of AI-powered automation tools for Pace University to streamline administrative operations. Includes data analysis pipelines, LLM-based workflow automation, and internal web dashboards.</p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🤖</span>
+                            <span>AI agent integration</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📊</span>
+                            <span>Data pipelines</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🔄</span>
+                            <span>Workflow automation</span>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Airflow</span>
+                        <span class="tech-tag">LLMs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">Python</span>
+                        <span class="skill-tag primary">SQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Dart</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Frameworks & Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Data & ML</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">Apache Airflow</span>
+                        <span class="skill-tag">ETL</span>
+                        <span class="skill-tag">Data Pipelines</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">CNNs</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">MLOps</span>
+                        <span class="skill-tag">Power BI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Concepts</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">System Design</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Microservices</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <!-- Education Card 1 -->
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>Pace University</h3>
+                        <span class="education-location">New York, NY</span>
+                    </div>
+                    <div class="education-degree">Master of Science in Computer Science</div>
+                    <div class="education-meta">
+                        <span class="education-date">Aug 2024 - May 2026</span>
+                        <span class="education-gpa">GPA: 3.86/4.0</span>
+                    </div>
+                    <div class="education-coursework">
+                        <h4>Relevant Coursework:</h4>
+                        <div class="coursework-tags">
+                            <span>Deep Learning & Neural Networks</span>
+                            <span>Large Language Models (LLMs)</span>
+                            <span>Machine Learning Systems</span>
+                            <span>Business Analytics</span>
+                            <span>Cloud Computing</span>
+                            <span>Algorithms & Data Structures</span>
+                            <span>Database Systems</span>
+                            <span>Software Engineering</span>
+                        </div>
+                    </div>
+                    <div class="education-activities">
+                        <h4>Activities:</h4>
+                        <ul>
+                            <li>Graduate Assistant - AI Automation & Data Engineering</li>
+                            <li>Perplexity Campus Ambassador</li>
+                            <li>INSPIRE Program</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education Card 2 -->
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>Jyothy Institute of Technology (VTU)</h3>
+                        <span class="education-location">Bangalore, India</span>
+                    </div>
+                    <div class="education-degree">Bachelor of Engineering in Computer Science</div>
+                    <div class="education-meta">
+                        <span class="education-date">2020 - 2024</span>
+                    </div>
+                    <div class="education-coursework">
+                        <h4>Relevant Coursework:</h4>
+                        <div class="coursework-tags">
+                            <span>Data Structures & DBMS</span>
+                            <span>Operating Systems</span>
+                            <span>Computer Networks</span>
+                            <span>AI/ML & Big Data Analytics</span>
+                            <span>Cloud Computing & NLP</span>
+                            <span>Computer Vision</span>
+                            <span>Software Engineering</span>
+                        </div>
+                    </div>
+                    <div class="education-activities">
+                        <h4>Activities:</h4>
+                        <ul>
+                            <li>Core Team, Tech Club of JyothyIT (Jun 2021 - Apr 2024)</li>
+                            <li>Organized National Level Hackathons (200+ participants annually)</li>
+                            <li>Led research paper writing workshops</li>
+                            <li>3rd Place, JITHACK Hackathon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section certifications" id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Achievements</h2>
+
+            <div class="cert-category">
+                <h3 class="cert-category-title">Industry Certifications</h3>
+                <div class="cert-grid">
+                    <div class="cert-card featured">
+                        <div class="cert-icon">☁️</div>
+                        <h4>AWS Certified Solutions Architect - Associate</h4>
+                        <p class="cert-issuer">Amazon Web Services</p>
+                        <p class="cert-date">Jan 2026</p>
+                    </div>
+                    <div class="cert-card featured">
+                        <div class="cert-icon">🎓</div>
+                        <h4>Red Hat Certified System Administrator (RHCSA) RH199</h4>
+                        <p class="cert-issuer">Red Hat</p>
+                        <p class="cert-date">Jul 2022</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🤖</div>
+                        <h4>Certified for AI</h4>
+                        <p class="cert-issuer">micro1</p>
+                        <p class="cert-date">Recent</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-category">
+                <h3 class="cert-category-title">Professional Simulations</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-icon">💼</div>
+                        <h4>Quantitative Research Job Simulation</h4>
+                        <p class="cert-issuer">J.P. Morgan (via Forage)</p>
+                        <p class="cert-date">Jul 2025</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">📊</div>
+                        <h4>Data Analytics and Visualization Job Simulation</h4>
+                        <p class="cert-issuer">Accenture (via Forage)</p>
+                        <p class="cert-date">Jan 2025</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">💻</div>
+                        <h4>Technology Software Development Job Simulation</h4>
+                        <p class="cert-issuer">Citi (via Forage)</p>
+                        <p class="cert-date">Jan 2025</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🧠</div>
+                        <h4>Artificial Intelligence Job Simulation</h4>
+                        <p class="cert-issuer">Cognizant (via Forage)</p>
+                        <p class="cert-date">Sep 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section publications" id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications & Research</h2>
+            <div class="publication-card">
+                <div class="publication-badge">Peer-Reviewed Publication</div>
+                <h3 class="publication-title">Deep Learning for Plant Disease Classification</h3>
+                <p class="publication-venue">Atlantis Highlights in Engineering, Atlantis Press (part of Springer Nature)</p>
+                <p class="publication-date">September 2023</p>
+                <p class="publication-abstract">
+                    This research presents a Convolutional Neural Network (CNN) based approach for automated plant disease detection through image classification. The model analyzes leaf images to identify and classify various plant diseases, offering a practical tool for agricultural technology. The paper covers the full research pipeline including dataset preparation, model architecture design, training methodology, and evaluation results.
+                </p>
+                <div class="publication-skills">
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">CNNs</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Research</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Paper</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-message">I'd love to hear from you. Whether it's a job opportunity, a collaboration, or just a conversation about technology, feel free to reach out.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:bharath.kr702@gmail.com">bharath.kr702@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <a href="tel:+15513712918">(551) 371-2918</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>New York City, NY</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            <a href="https://linkedin.com/in/thebharathkumar" target="_blank">linkedin.com/in/thebharathkumar</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💻</span>
+                            <a href="https://github.com/thebharathkumar" target="_blank">github.com/thebharathkumar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/thebharathkumar" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/thebharathkumar" target="_blank">GitHub</a>
+                    <a href="mailto:bharath.kr702@gmail.com">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bharath Kumar Rajesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
