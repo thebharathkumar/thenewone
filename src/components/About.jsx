@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Brain, Database, Award, BookOpen } from 'lucide-react'
+import { Users, CheckCircle, BookOpen } from 'lucide-react'
 import './About.css'
 
 const About = () => {
@@ -9,10 +9,9 @@ const About = () => {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   const stats = [
-    { number: '3.86', label: 'MSCS GPA', icon: <Award size={20} />, color: 'var(--neon-cyan)' },
-    { number: '1K+', label: 'Users Served', icon: <Database size={20} />, color: 'var(--neon-purple)' },
-    { number: '90%', label: 'ML Accuracy', icon: <Brain size={20} />, color: 'var(--neon-pink)' },
-    { number: '16+', label: 'Certifications', icon: <BookOpen size={20} />, color: 'var(--neon-green)' }
+    { number: '10K+', label: 'Daily Users (Pace Platform)', icon: <Users size={20} />, color: 'var(--neon-cyan)' },
+    { number: '12', label: 'Zero-Regression Releases', icon: <CheckCircle size={20} />, color: 'var(--neon-purple)' },
+    { number: '2', label: 'Published Papers', icon: <BookOpen size={20} />, color: 'var(--neon-pink)' }
   ]
 
   return (
@@ -37,22 +36,26 @@ const About = () => {
           >
             <p className="about-intro">Hi, I'm Bharath.</p>
             <p>
-              I'm an AI Engineer and published researcher based in New York City,
-              currently completing my Master's in Computer Science at Pace University (3.86 GPA).
-              I specialize in building AI systems, LLM pipelines, RAG architectures, and agentic workflows at scale.
+              I work on the infrastructure side of AI systems: multi-agent workflows, evaluation
+              pipelines, and observability for LLM-based applications. The part that interests me
+              is taking experimental agent setups and turning them into something that runs
+              reliably in production, with the eval and trace layers doing real work instead of
+              just being dashboards.
             </p>
             <p>
-              As a Graduate Assistant AI Engineering and Software Systems at Pace University,
-              I design and deploy production RAG pipelines, NLP
-              models, and multi-agent systems — serving 1,000+
-              users and cutting hallucination rates by 35%.
+              At Pace I built a multi-agent platform on LangGraph and Claude (Amazon Bedrock)
+              serving 10,000+ daily users, with per-step evaluation graders driving 12 consecutive
+              zero-regression releases. Outside of that, I shipped <strong>agent-triage</strong>,
+              a CLI for scoring multi-agent failure patterns with confidence scoring and
+              regression mode, and <strong>mcp-otel-audit</strong>, a public conformance audit of
+              the four major MCP OpenTelemetry instrumentations that the Pydantic Logfire and
+              MCP-Python maintainer engaged with directly.
             </p>
-            <div className="about-highlight">
-              <span className="highlight-icon">▶</span>
-              <p>
-                <strong>Seeking AI Engineer, ML Engineer, or Data Engineer roles — open to full-time from Summer 2026.</strong>
-              </p>
-            </div>
+            <p>
+              I'm finishing my MS in Computer Science at Pace (3.86 GPA, May 2026) and looking
+              for AI Engineer or Applied AI roles where the work is closer to agent
+              infrastructure than model training.
+            </p>
           </motion.div>
 
           <motion.div

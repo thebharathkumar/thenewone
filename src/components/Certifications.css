@@ -80,16 +80,55 @@
   letter-spacing: 0.3px;
 }
 
-/* ─── Additional Label ─── */
-.cert-additional-label {
+/* ─── Additional Learning (collapsible) ─── */
+.cert-additional-details {
+  position: relative;
+  z-index: 1;
+}
+
+.cert-additional-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--text-muted);
+  padding: 8px 14px;
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  list-style: none;
+  user-select: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
   margin-bottom: 16px;
-  position: relative;
-  z-index: 1;
+}
+
+/* Hide the default disclosure marker across browsers */
+.cert-additional-summary::-webkit-details-marker { display: none; }
+.cert-additional-summary::marker { content: ''; }
+
+.cert-additional-summary:hover {
+  color: var(--text-primary);
+  border-color: var(--glass-border-hover);
+}
+
+.cert-additional-count {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  background: rgba(148, 163, 184, 0.08);
+  border-radius: 100px;
+  letter-spacing: 1px;
+}
+
+.cert-additional-chevron {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.cert-additional-details[open] .cert-additional-chevron {
+  transform: rotate(180deg);
 }
 
 /* ─── Compact List ─── */

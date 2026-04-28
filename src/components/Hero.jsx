@@ -178,7 +178,7 @@ const Hero = () => {
           transition={{ delay: 0.85 }}
         >
           <span className="typewriter-text">
-            AI Engineer · Published Researcher · AWS Certified
+            AI Engineer · Building infrastructure for agentic systems · Published Researcher
           </span>
         </motion.div>
 

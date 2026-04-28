@@ -26,17 +26,17 @@ const Certifications = () => {
       skills: ['Linux', 'Systems Administration']
     },
     {
-      title: 'Certified for AI',
-      issuer: 'micro1',
-      date: '2025',
+      title: 'Claude with Amazon Bedrock',
+      issuer: 'Anthropic',
+      date: 'Mar 2026',
       color: 'var(--neon-purple)',
-      code: 'AI Cert',
-      skills: ['Artificial Intelligence']
+      code: 'Anthropic',
+      skills: ['Amazon Bedrock', 'Claude']
     }
   ]
 
   const additional = [
-    { title: 'Claude with Amazon Bedrock', issuer: 'Anthropic', date: 'Mar 2026', skills: ['Amazon Bedrock', 'Claude'], id: 'rgpsk7edqkdg' },
+    { title: 'Certified for AI', issuer: 'micro1', date: '2025', skills: ['Artificial Intelligence'] },
     { title: 'AWS Educate Introduction to Cloud 101', issuer: 'Amazon Web Services', date: 'Oct 2025', skills: ['AWS', 'Cloud'] },
     { title: 'J.P. Morgan – Quantitative Research Job Simulation', issuer: 'Forage', date: 'Jul 2025', id: 'hoPh7a7vqXQfGqgzx' },
     { title: 'Accenture – Data Analytics & Visualization Simulation', issuer: 'Forage', date: 'Jan 2025', skills: ['Apache Airflow', 'Data Analysis'], id: 'sFbZfjtCdyX4Wgyv6' },
@@ -91,40 +91,33 @@ const Certifications = () => {
           ))}
         </div>
 
-        {/* ─ Additional Certs ─ */}
-        <motion.div
-          className="cert-additional-label"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.4 }}
-        >
-          Additional Certifications & Simulations
-        </motion.div>
+        {/* ─ Additional Learning (collapsed) ─ */}
+        <details className="cert-additional-details">
+          <summary className="cert-additional-summary">
+            <span>Additional Learning</span>
+            <span className="cert-additional-count">{additional.length} items</span>
+            <span className="cert-additional-chevron" aria-hidden="true">▾</span>
+          </summary>
 
-        <div className="cert-list">
-          {additional.map((cert, index) => (
-            <motion.div
-              key={index}
-              className="cert-list-item"
-              initial={{ x: -20, opacity: 0 }}
-              animate={inView ? { x: 0, opacity: 1 } : {}}
-              transition={{ delay: 0.35 + index * 0.04, duration: 0.4 }}
-            >
-              <div className="cert-list-dot" />
-              <div className="cert-list-content">
-                <span className="cert-list-title">{cert.title}</span>
-                <span className="cert-list-meta">{cert.issuer} · {cert.date}</span>
-              </div>
-              {cert.skills && (
-                <div className="cert-list-skills">
-                  {cert.skills.map((s, i) => (
-                    <span key={i} className="cert-skill-tag">{s}</span>
-                  ))}
+          <div className="cert-list">
+            {additional.map((cert, index) => (
+              <div key={index} className="cert-list-item">
+                <div className="cert-list-dot" />
+                <div className="cert-list-content">
+                  <span className="cert-list-title">{cert.title}</span>
+                  <span className="cert-list-meta">{cert.issuer} · {cert.date}</span>
                 </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+                {cert.skills && (
+                  <div className="cert-list-skills">
+                    {cert.skills.map((s, i) => (
+                      <span key={i} className="cert-skill-tag">{s}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </details>
       </div>
     </section>
   )
