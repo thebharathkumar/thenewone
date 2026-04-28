@@ -132,6 +132,35 @@
   margin-top: 4px;
 }
 
+/* ─── Optional links (GitHub / external writeup) ─── */
+.project-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--glass-border);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 1100px) {
   .projects-grid {

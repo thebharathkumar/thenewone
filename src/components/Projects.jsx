@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Github } from 'lucide-react'
+import { Github, ExternalLink } from 'lucide-react'
 import './Projects.css'
 
 const Projects = () => {
@@ -9,6 +9,27 @@ const Projects = () => {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   const projects = [
+    {
+      title: 'agent-triage',
+      year: '2026',
+      description: 'A CLI that ingests multi-agent trace files and produces a ranked report of which failure patterns matter most. Patterns are scored across frequency, severity, and recovery, then surfaced with confidence levels, trend classification, and a regression mode for comparing two batches of runs.',
+      highlights: ['95% Test Coverage', 'Confidence Scoring', 'Regression Mode'],
+      tags: ['Python', 'Click', 'Pydantic', 'OpenTelemetry', 'pytest'],
+      color: 'var(--neon-cyan)',
+      featured: true,
+      github: 'https://github.com/thebharathkumar/agent-triage'
+    },
+    {
+      title: 'mcp-otel-audit',
+      year: '2026',
+      description: 'A reproducible audit harness comparing the four major MCP OpenTelemetry instrumentations against semantic-conventions v1.40.0. Each implementation runs the same MCP server in an isolated docker-compose stack, with raw OTLP captured and scored using OTel Weaver\'s live-check.',
+      highlights: ['Maintainer Engagement', 'Published Writeup', 'OTel Semconv v1.40'],
+      tags: ['Python 3.12', 'OpenTelemetry', 'OTel Weaver', 'Docker Compose', 'FastMCP'],
+      color: 'var(--neon-purple)',
+      featured: true,
+      github: 'https://github.com/thebharathkumar/mcp-otel-audit',
+      link: 'https://medium.com/@thebharathkumar/auditing-mcp-opentelemetry-instrumentations-8cbd0a8b6778'
+    },
     {
       title: 'Large-Scale AI Information Retrieval System',
       year: '2026',
@@ -129,6 +150,35 @@ const Projects = () => {
                   <span key={i} className="tag">{tag}</span>
                 ))}
               </div>
+
+              {(project.github || project.link) && (
+                <div className="project-links">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      style={{ color: project.color }}
+                      aria-label={`${project.title} on GitHub`}
+                    >
+                      <Github size={14} /> Code
+                    </a>
+                  )}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      style={{ color: project.color }}
+                      aria-label={`${project.title} writeup`}
+                    >
+                      <ExternalLink size={14} /> Writeup
+                    </a>
+                  )}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
