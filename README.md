@@ -9,13 +9,12 @@ Personal portfolio site. Live: [thebharathkumar.netlify.app](https://thebharathk
 - **Framer Motion** for entrance and scroll animations
 - **lucide-react** for icons
 - Light + dark theme via `ThemeContext` with `localStorage` persistence
-- Serverless `api/chat.js` (Vercel Node function) calling **Claude Opus 4.7** with prompt caching — falls back to a static knowledge base when the endpoint is unavailable
+- Floating BK·AI **FAQ assistant** — fully client-side, pattern-matched knowledge base. No external API, nothing for visitors to abuse.
 
 ## Project layout
 
 ```
 .
-├── api/chat.js                   # Serverless chat backend (Anthropic SDK)
 ├── index.html                    # SEO meta + Open Graph + JSON-LD person schema
 ├── public/                       # Static assets (favicon, resumes, robots.txt, sitemap.xml, 404.html)
 │   └── resumes/                  # 16 role-specific PDFs
@@ -42,33 +41,15 @@ npm run preview  # serves the production build
 npm run lint
 ```
 
-## Chatbot backend
+## Chatbot
 
-The floating BK·AI chatbot calls `POST /api/chat`. It works in two modes:
+The floating BK·AI assistant is a static FAQ matcher (`src/components/Chatbot.jsx`). It runs entirely in the browser against a hand-curated knowledge base of patterns and responses. There is no LLM call, no API key, nothing to abuse — visitors can't run up a bill and can't prompt-inject into anything that calls outward.
 
-| Mode               | Trigger                                    | Behavior                                  |
-| ------------------ | ------------------------------------------ | ----------------------------------------- |
-| **LLM**            | `ANTHROPIC_API_KEY` is set on the host     | Real Claude responses (Opus 4.7 + prompt caching) |
-| **Static fallback**| API returns 503/404 or runs static-only    | Pattern-matched answers from a built-in KB |
+To extend it, edit the `KB` object in `Chatbot.jsx`: each entry is a list of trigger phrases plus a markdown-flavoured response.
 
-Because of the fallback, **the site works on any static host** (Netlify, GitHub Pages, S3) — only the LLM mode requires a host that runs serverless functions. The footer line in the chatbot reflects which mode is active.
+## Deploy
 
-### Vercel deploy
-
-1. Connect the repo on Vercel.
-2. Add `ANTHROPIC_API_KEY` in **Project Settings → Environment Variables**.
-3. Deploy — `api/chat.js` becomes available at `/api/chat` automatically.
-
-### Netlify deploy
-
-The current code keeps the LLM endpoint at `api/chat.js` (Vercel format). Netlify can serve the static site as-is; for the LLM chatbot on Netlify, port `api/chat.js` into `netlify/functions/chat.js` and add a redirect:
-
-```toml
-[[redirects]]
-  from = "/api/chat"
-  to = "/.netlify/functions/chat"
-  status = 200
-```
+Static-only — works on any host. For Vercel, `vercel.json` is included; for Netlify, `netlify.toml` is included. Both add SPA fallback and asset cache headers.
 
 ## Performance notes
 
