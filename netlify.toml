@@ -5,10 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA fallback — every unknown path serves index.html so React Router-style
-# deep links work. The /api/* path is intentionally excluded; if you want the
-# LLM-backed chatbot on Netlify, port api/chat.js to netlify/functions/chat.js
-# and add a redirect from /api/chat to /.netlify/functions/chat.
+# SPA fallback — every unknown path serves index.html so anchor-style
+# deep links keep working.
 [[redirects]]
   from = "/*"
   to = "/index.html"

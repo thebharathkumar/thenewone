@@ -1,11 +1,11 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Send, Minimize2 } from 'lucide-react'
 import './Chatbot.css'
 
-// ─── Static fallback knowledge base ────────────────────────────────────────────
-// Used when /api/chat is unavailable (local dev without ANTHROPIC_API_KEY,
-// pure-static deploy without the serverless function, etc.).
+// ─── Static knowledge base ──────────────────────────────────────────────────
+// Pattern-matched, fully client-side. No external API, no LLM, nothing for
+// visitors to abuse. Keep entries concise and recruiter-friendly.
 const KB = {
     identity: {
         patterns: ['who are you', 'tell me about yourself', 'introduce yourself', 'who is bharath', 'about bharath', 'about you'],
@@ -49,7 +49,7 @@ const KB = {
     },
     greeting: {
         patterns: ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'greetings', 'sup', 'yo'],
-        response: `Hi! I'm the AI assistant for **Bharath Kumar Rajesh's** portfolio. Ask me about his skills, projects, experience, or how to get in touch.`
+        response: `Hi! I'm the FAQ assistant for **Bharath Kumar Rajesh's** portfolio. Ask me about his skills, projects, experience, or how to get in touch.`
     },
     help: {
         patterns: ['help', 'what can you', 'commands', 'options', 'topics', 'menu', 'guide'],
@@ -57,7 +57,7 @@ const KB = {
     }
 }
 
-const FALLBACK = `I'm tuned to answer questions about Bharath Kumar Rajesh's background, skills, projects, and experience. Try asking about his projects, certifications, or how to get in touch — or type **"help"** for the full list.`
+const FALLBACK = `I answer FAQs about Bharath Kumar Rajesh's background, skills, projects, and experience. Try asking about his **projects**, **certifications**, or **how to get in touch** — or type **"help"** for the full list.`
 
 const matchKB = (input) => {
     const text = input.toLowerCase().trim()
@@ -105,13 +105,12 @@ const Chatbot = () => {
         {
             id: 0,
             type: 'bot',
-            text: `Hi! I'm **BK·AI**, the portfolio assistant for **Bharath Kumar Rajesh**.\n\nAsk me anything about his skills, projects, experience, or how to get in touch.`,
+            text: `Hi! I'm **BK·AI**, the FAQ assistant for **Bharath Kumar Rajesh**.\n\nAsk me anything about his skills, projects, experience, or how to get in touch.`,
         },
     ])
     const [input, setInput] = useState('')
     const [typing, setTyping] = useState(false)
     const [showSuggestions, setShowSuggestions] = useState(true)
-    const [llmAvailable, setLlmAvailable] = useState(true)
     const messagesEndRef = useRef(null)
     const inputRef = useRef(null)
     const triggerRef = useRef(null)
@@ -126,7 +125,6 @@ const Chatbot = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
     }, [messages, typing])
 
-    // Escape closes the panel
     useEffect(() => {
         if (!open) return
         const onKey = (e) => {
@@ -139,56 +137,25 @@ const Chatbot = () => {
         return () => document.removeEventListener('keydown', onKey)
     }, [open])
 
-    const callLLM = useCallback(async (userText, history) => {
-        const controller = new AbortController()
-        const timeout = setTimeout(() => controller.abort(), 20000)
-        try {
-            const res = await fetch('/api/chat', {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify({
-                    message: userText,
-                    history: history.map((m) => ({
-                        role: m.type === 'user' ? 'user' : 'assistant',
-                        content: m.text,
-                    })),
-                }),
-                signal: controller.signal,
-            })
-            if (!res.ok) {
-                if (res.status === 503 || res.status === 404) setLlmAvailable(false)
-                return null
-            }
-            const data = await res.json()
-            return typeof data.text === 'string' && data.text.length > 0 ? data.text : null
-        } catch {
-            return null
-        } finally {
-            clearTimeout(timeout)
-        }
-    }, [])
-
     const sendMessage = async (text) => {
         const userText = (text ?? input).trim()
         if (!userText) return
         setInput('')
         setShowSuggestions(false)
 
-        const history = messages
         setMessages((prev) => [
             ...prev,
             { id: Date.now(), type: 'user', text: userText },
         ])
 
         setTyping(true)
-        let reply = null
-        if (llmAvailable) reply = await callLLM(userText, history)
-        if (!reply) reply = matchKB(userText)
+        // Brief artificial delay so the typing indicator is visible.
+        await new Promise((r) => setTimeout(r, 450 + Math.random() * 350))
         setTyping(false)
 
         setMessages((prev) => [
             ...prev,
-            { id: Date.now() + 1, type: 'bot', text: reply },
+            { id: Date.now() + 1, type: 'bot', text: matchKB(userText) },
         ])
     }
 
@@ -207,7 +174,7 @@ const Chatbot = () => {
                 onClick={() => setOpen((o) => !o)}
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.93 }}
-                aria-label={open ? 'Close portfolio assistant' : 'Open portfolio assistant'}
+                aria-label={open ? 'Close portfolio FAQ' : 'Open portfolio FAQ'}
                 aria-expanded={open}
                 aria-controls="bk-ai-panel"
             >
@@ -227,7 +194,7 @@ const Chatbot = () => {
                         id="bk-ai-panel"
                         className="chatbot-panel"
                         role="dialog"
-                        aria-label="Portfolio assistant"
+                        aria-label="Portfolio FAQ assistant"
                         initial={{ opacity: 0, scale: 0.85, y: 30 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.85, y: 30 }}
@@ -239,9 +206,7 @@ const Chatbot = () => {
                                 <div className="chat-status-dot" />
                                 <div>
                                     <div className="chat-title">BK·AI</div>
-                                    <div className="chat-subtitle">
-                                        {llmAvailable ? 'Portfolio assistant · Online' : 'Portfolio assistant · Offline mode'}
-                                    </div>
+                                    <div className="chat-subtitle">Portfolio FAQ · Online</div>
                                 </div>
                             </div>
                             <div className="chat-header-right">
@@ -331,9 +296,7 @@ const Chatbot = () => {
                                 </button>
                             </div>
                             <div className="chat-footer-line">
-                                {llmAvailable
-                                    ? 'Powered by Claude · Responses may be inaccurate'
-                                    : 'Static knowledge base · For details, email bharath.kr702@gmail.com'}
+                                FAQ assistant · For details, email bharath.kr702@gmail.com
                             </div>
                         </div>
                     </motion.div>
