@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from './context/ThemeContext'
+import { useScrollY } from './hooks/useScrollY'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -18,28 +18,26 @@ import Chatbot from './components/Chatbot'
 import './App.css'
 
 function App() {
-  const [showBackToTop, setShowBackToTop] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setShowBackToTop(window.scrollY > 500)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const scrollY = useScrollY()
+  const showBackToTop = scrollY > 500
 
   return (
     <ThemeProvider>
+      <a href="#home" className="skip-link">Skip to content</a>
       <div className="App">
-        <ThermalScrollEffect />
+        <ThermalScrollEffect scrollY={scrollY} />
         <Navbar />
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Education />
-        <Certifications />
-        <Publications />
-        <Contact />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Education />
+          <Certifications />
+          <Publications />
+          <Contact />
+        </main>
         <Footer />
         <AnimatePresence>
           {showBackToTop && <BackToTop />}
