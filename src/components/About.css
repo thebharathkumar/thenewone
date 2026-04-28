@@ -1,0 +1,135 @@
+/* ─── About Section ─── */
+.about {
+  position: relative;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 36px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.about-text p {
+  margin-bottom: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.about-intro {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem !important;
+  font-weight: 700;
+  color: var(--text-primary) !important;
+  margin-bottom: 1rem;
+}
+
+.about-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 1.2rem;
+  padding: 13px 18px;
+  background: rgba(103, 232, 249, 0.04);
+  border: 1px solid rgba(103, 232, 249, 0.15);
+  border-left: 2px solid var(--neon-cyan);
+  border-radius: 0 8px 8px 0;
+}
+
+[data-theme="light"] .about-highlight {
+  background: rgba(14, 165, 233, 0.04);
+  border-color: rgba(14, 165, 233, 0.18);
+  border-left-color: var(--neon-cyan);
+}
+
+.highlight-icon {
+  color: var(--neon-cyan);
+  font-size: 0.6rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.about-highlight p {
+  margin: 0 !important;
+  color: var(--text-primary) !important;
+  font-size: 0.9rem !important;
+}
+
+/* ─── Stats ─── */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: all 0.25s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--stat-color, var(--neon-cyan));
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 0.9;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--glass-border-hover);
+}
+
+.stat-icon {
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.stat-number {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.67rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 900px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
