@@ -16,8 +16,7 @@ Personal portfolio site. Live: [thebharathkumar.netlify.app](https://thebharathk
 ```
 .
 ├── index.html                    # SEO meta + Open Graph + JSON-LD person schema
-├── public/                       # Static assets (favicon, resumes, robots.txt, sitemap.xml, 404.html)
-│   └── resumes/                  # 16 role-specific PDFs
+├── public/                       # Static assets (favicon, robots.txt, sitemap.xml, 404.html)
 ├── src/
 │   ├── App.jsx                   # Single source of truth for scroll state
 │   ├── components/               # One section per file (Hero, About, ...)
@@ -67,7 +66,7 @@ Static-only — works on any host. For Vercel, `vercel.json` is included; for Ne
 
 ## Resumes
 
-`public/resumes/` holds 16 role-targeted PDFs (AI / ML / SWE / Data / Cloud / DevOps / SRE / QA / Solutions / DevRel / PM / Research / etc.). The hero "Download Resume" modal groups them into three domains so visitors don't drown.
+Resumes are no longer hosted in this repo. The hero "View Resume" button links to [thebharath.co](https://thebharath.co).
 
 ## Author
 
